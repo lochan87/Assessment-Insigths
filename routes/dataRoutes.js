@@ -3,16 +3,7 @@ const { getData } = require('../controllers/dataController');
 
 const router = express.Router();
 
-router.get('/CIA-I', async (req, res) => {
-    try {
-        const usn = req.query.usn || '1DS22IS001'; // Default value
-        await getData('CIA-I', usn, res);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-// router.get('/CIA-I', async (req, res) => await getData('CIA-I', res));
+router.get('/CIA-I', async (req, res) => await getData('CIA-I', res));
 router.get('/CIA-II', async (req, res) => await getData('CIA-II', res));
 router.get('/CIA-III', async (req, res) => await getData('CIA-III', res));
 router.get('/Final', async (req, res) => await getData('Final', res));

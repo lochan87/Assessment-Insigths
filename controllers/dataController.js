@@ -16,9 +16,11 @@
 // module.exports = { getData };
 
 const { getDB } = require('../config/db');
+const { getUSN } = require('../store/store');
 
-const getData = async (collectionName, usn, res) => {
+const getData = async (collectionName, res) => {
     const db = getDB();
+    const usn = getUSN();
     const projection = { _id: 0 }; // Specify the fields you need
 
     try {
@@ -30,3 +32,4 @@ const getData = async (collectionName, usn, res) => {
 };
 
 module.exports = { getData };
+
