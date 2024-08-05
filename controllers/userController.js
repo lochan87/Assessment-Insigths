@@ -1,8 +1,8 @@
 // controllers/userController.js
 const { setUSN } = require('../store/store');
 
-const updateUSN = (req, res) => {
-    const { parcel } = req.body;
+const updateUSN = async (req, res) => {
+    const { parcel } = await req.body;
     setUSN(parcel);
     res.status(200).send({ usn: parcel });
 };
